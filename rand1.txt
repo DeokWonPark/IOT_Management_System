@@ -1,0 +1,16 @@
+#include <stdio.h>
+#include<stdlib.h>
+
+int main(void)
+{
+	int arr[10]; //난수를 담을 배열 생성
+	int i;
+
+	for (i = 0; i < 10; i++) //10번 반복하여 난수 생성
+	{
+		arr[i] = rand() % 10 + 1; //1~10사이의 난수 생성
+		printf("%d ", arr[i]);
+
+	}
+	return 0;
+}
