@@ -4,13 +4,32 @@
 int main(void)
 {
 	int arr[10]; //난수를 담을 배열 생성
-	int i;
+	int mark[10] = { 0 }; //중복 난수를 방지하기위해 발생된난수를 확인하기위한 배열
+	int num, i;
 
 	for (i = 0; i < 10; i++) //10번 반복하여 난수 생성
 	{
-		arr[i] = rand() % 10 + 1; //1~10사이의 난수 생성
-		printf("%d ", arr[i]);
-
+		num = rand() % 10 + 1; //1~10 사이의 난수 생성
+		if (i == 0) //첫번째일 경우
+		{
+			mark[num - 1] = 1;
+			arr[i] = num;
+			continue;
+		}
+		else if (!mark[num - 1])//중복된 난수가 아닐경우
+		{
+			mark[num - 1] = 1;
+			arr[i] = num;
+		}
+		else
+			i--; //중복된 난수일경우
 	}
+
+	for (i = 0; i < 10; i++)
+	{
+		printf("%d ", arr[i]);
+	}
+
 	return 0;
+
 }
