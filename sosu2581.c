@@ -39,7 +39,10 @@ int main(void)
 		for (j = 2; j < gb; j++)
 		{
 			if (gb%j == 0)
+			{
 				count++;
+				break;
+			}
 		}
 		if (count == 0)
 			sum += gb;
